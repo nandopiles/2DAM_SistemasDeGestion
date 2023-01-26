@@ -1,0 +1,160 @@
+<odoo>
+    <data>
+        <!-- Vista de Árbol => Inventario -->
+        <record model="ir.ui.view" id="lista_compra_inventario_tree">
+            <field name="name">lista_compra.inventario_tree</field>
+            <field name="model">lista_compra.inventario</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="cantidad"/>
+                    <field name="tipo_producto"/>
+                    <field name="precio_unidad"/>
+
+                    <field name="compra_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de Árbol => Compra -->
+        <record model="ir.ui.view" id="lista_compra_compra_tree">
+            <field name="name">lista_compra.compra_tree</field>
+            <field name="model">lista_compra.compra</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="cantidad_compra"/>
+                    <field name="fecha_compra"/>
+
+                    <field name="inventario_id"/>
+                    <field name="comprador_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de Árbol => Comprador -->
+        <record model="ir.ui.view" id="lista_compra_comprador_form">
+            <field name="name">lista_compra.comprador_form</field>
+            <field name="model">lista_compra.comprador</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="apellido1"/>
+                    <field name="apellido2"/>
+                    <field name="direccion"/>
+
+                    <field name="compra_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Vista de formulario => Inventario -->
+        <record model="ir.ui.view" id="lista_compra_inventario_form">
+            <field name="name">lista_compra.inventario_form</field>
+            <field name="model">lista_compra.inventario</field>
+            <field name="arch" type="xml">
+                <form string="Inventario Form">
+                    <sheet>
+                        <group string="Inventario">
+                            <field name="name"/>
+                            <field name="cantidad"/>
+                            <field name="tipo_producto"/>
+                            <field name="precio_unidad"/>
+
+                            <field name="compra_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de formulario => Compra -->
+        <record model="ir.ui.view" id="lista_compra_compra_form">
+            <field name="name">lista_compra.compra_form</field>
+            <field name="model">lista_compra.compra</field>
+            <field name="arch" type="xml">
+                <form string="Compra Form">
+                    <sheet>
+                        <group string="Compra">
+                            <field name="name"/>
+                            <field name="cantidad_compra"/>
+                            <field name="fecha_compra"/>
+
+                            <field name="inventario_id"/>
+                            <field name="comprador_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de formulario => Comprador -->
+        <record model="ir.ui.view" id="lista_compra_comprador_form">
+            <field name="name">lista_compra.comprador_form</field>
+            <field name="model">lista_compra.comprador</field>
+            <field name="arch" type="xml">
+                <form string="Comprador Form">
+                    <sheet>
+                        <group string="Comprador">
+                            <field name="name"/>
+                            <field name="apellido1"/>
+                            <field name="apellido2"/>
+                            <field name="direccion"/>
+
+                            <field name="compra_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Calendar => Compra -->
+        <record model="ir.ui.view" id="calendar_compras">
+            <field name="name">lista_compra.calendar_compra</field>
+            <field name="model">lista_compra.compra</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendar Compra" date_start="fecha_compra">
+                    <field name="name"/>
+                    <field name="cantidad_compra"/>
+                    <field name="fecha_compra"/>
+
+                    <field name="inventario_id"/>
+                    <field name="comprador_id"/>
+                </calendar>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="lista_compra_inventario">
+            <field name="name">Inventario</field>
+            <field name="res_model">lista_compra.inventario</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="lista_compra_compra">
+            <field name="name">Compra</field>
+            <field name="res_model">lista_compra.compra</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="lista_compra_comprador">
+            <field name="name">Comprador</field>
+            <field name="res_model">lista_compra.comprador</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Top menu item -->
+        <menuitem name="lista_compra" id="lista_compra_menu_root"/>
+
+        <!-- actions -->
+        <menuitem name="Inventario" id="lista_compra_menu_inventario" parent="lista_compra_menu_root"
+                  action="lista_compra_inventario"/>
+        <menuitem name="Compra" id="lista_compra_menu_compra" parent="lista_compra_menu_root"
+                  action="lista_compra_compra"/>
+        <menuitem name="Comprador" id="lista_compra_menu_comprador" parent="lista_compra_menu_root"
+                  action="lista_compra_comprador"/>
+    </data>
+</odoo>

@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+
+        <record id="parque1" model="parque_bomberos.parque">
+            <field name="name">Fuenlabrada</field>
+            <field name="jefe">PacoPepe</field>
+            <field name="direccion">C/La Siu</field>
+            <field name="fecha_inauguracion">2003-03-21</field>
+            <field name="ciudad">Valencia</field>
+            <field name="municipio">Meliana</field>
+        </record>
+
+        <record id="camion1" model="parque_bomberos.camion">
+            <field name="name">Cami Cami</field>
+            <field name="cv">200</field>
+            <field name="litros">50</field>
+            <field name="color">Verde</field>
+            <field name="capacidad">12</field>
+            <field name="lleva_manguera">true</field>
+
+            <field name="parque" ref="parque1"/>
+        </record>
+
+        <record id="camion2" model="parque_bomberos.camion">
+            <field name="name">Cami2</field>
+            <field name="cv">100</field>
+            <field name="litros">12</field>
+            <field name="color">Brown</field>
+            <field name="capacidad">1</field>
+            <field name="lleva_manguera">false</field>
+
+            <field name="parque" ref="parque1"/>
+        </record>
+
+        <record id="bombero1" model="parque_bomberos.bombero">
+            <field name="name">2132343H</field>
+            <field name="nombre">Juanjo</field>
+            <field name="apellidos">López</field>
+            <field name="es_veterano">true</field>
+            <field name="fecha_nacimiento">2001-03-21</field>
+            <field name="salario">1400</field>
+
+            <field name="camion" ref="camion1"/>
+        </record>
+
+        <record id="bombero2" model="parque_bomberos.bombero">
+            <field name="name">21g</field>
+            <field name="nombre">Pepe</field>
+            <field name="apellidos">Pérez</field>
+            <field name="es_veterano">false</field>
+            <field name="fecha_nacimiento">2001-04-01</field>
+            <field name="salario">1000</field>
+
+            <field name="camion" ref="camion2"/>
+        </record>
+
+        <record id="bombero3" model="parque_bomberos.bombero">
+            <field name="name">7324678423K</field>
+            <field name="nombre">Lucia</field>
+            <field name="apellidos">Riera</field>
+            <field name="es_veterano">true</field>
+            <field name="fecha_nacimiento">2000-04-01</field>
+            <field name="salario">2000</field>
+
+            <field name="camion" ref="camion2"/>
+        </record>
+    </data>
+</odoo>

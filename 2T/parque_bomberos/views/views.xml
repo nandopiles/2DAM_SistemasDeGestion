@@ -1,0 +1,190 @@
+<odoo>
+    <data>
+        <!-- Vista de Árbol => Parque -->
+        <record model="ir.ui.view" id="parque_bomberos_parque_tree">
+            <field name="name">parque_bomberos.parque_tree</field>
+            <field name="model">parque_bomberos.parque</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="jefe"/>
+                    <field name="direccion"/>
+                    <field name="fecha_inauguracion"/>
+                    <field name="ciudad"/>
+                    <field name="municipio"/>
+
+                    <field name="camion"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de Árbol => Camion -->
+        <record model="ir.ui.view" id="parque_bomberos_camion_tree">
+            <field name="name">parque_bomberos.camion_tree</field>
+            <field name="model">parque_bomberos.camion</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="cv"/>
+                    <field name="litros"/>
+                    <field name="color"/>
+                    <field name="capacidad"/>
+                    <field name="lleva_manguera"/>
+
+                    <field name="parque"/>
+                    <field name="bombero"/>
+
+                    <field name="under_fuel"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de Árbol => Bombero -->
+        <record model="ir.ui.view" id="parque_bomberos_bombero_tree">
+            <field name="name">parque_bomberos.bombero_tree</field>
+            <field name="model">parque_bomberos.bombero</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="nombre"/>
+                    <field name="apellidos"/>
+                    <field name="es_veterano"/>
+                    <field name="fecha_nacimiento"/>
+                    <field name="salario"/>
+
+                    <field name="camion"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario => Parque -->
+        <record model="ir.ui.view" id="parque_bomberos_parque_form">
+            <field name="name">parque_bomberos.parque_form</field>
+            <field name="model">parque_bomberos.parque</field>
+            <field name="arch" type="xml">
+                <form string="Parque Form">
+                    <sheet>
+                        <group string="Parques">
+                            <field name="name"/>
+                            <field name="jefe"/>
+                            <field name="direccion"/>
+                            <field name="fecha_inauguracion"/>
+                            <field name="ciudad"/>
+                            <field name="municipio"/>
+
+                            <field name="camion"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de formulario => Camion -->
+        <record model="ir.ui.view" id="parque_bomberos_camion_form">
+            <field name="name">parque_bomberos.camion_form</field>
+            <field name="model">parque_bomberos.camion</field>
+            <field name="arch" type="xml">
+                <form string="Camion Form">
+                    <sheet>
+                        <group string="Camiones">
+                            <field name="name"/>
+                            <field name="cv"/>
+                            <field name="litros"/>
+                            <field name="color"/>
+                            <field name="capacidad"/>
+                            <field name="lleva_manguera"/>
+
+                            <field name="parque"/>
+                            <field name="bombero"/>
+
+                            <field name="under_fuel"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de formulario => Bombero -->
+        <record model="ir.ui.view" id="parque_bomberos_bombero_form">
+            <field name="name">parque_bomberos.bombero_form</field>
+            <field name="model">parque_bomberos.bombero</field>
+            <field name="arch" type="xml">
+                <form string="Bombero Form">
+                    <sheet>
+                        <group string="Bomberos">
+                            <field name="name"/>
+                            <field name="nombre"/>
+                            <field name="apellidos"/>
+                            <field name="es_veterano"/>
+                            <field name="fecha_nacimiento"/>
+                            <field name="salario"/>
+
+                            <field name="camion"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Calendar => Parque -->
+        <record model="ir.ui.view" id="calendar_parques">
+            <field name="name">parque_bomberos.calendar_bomberos</field>
+            <field name="model">parque_bomberos.parque</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendar Parque" date_start="fecha_inauguracion">
+                    <field name="name"/>
+                    <field name="direccion"/>
+                    <field name="ciudad"/>
+                    <field name="municipio"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Vista Calendar => Bombero -->
+        <record model="ir.ui.view" id="calendar_bombero">
+            <field name="name">parque_bomberos.calendar_bomberos</field>
+            <field name="model">parque_bomberos.bombero</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendar Bombero" date_start="fecha_nacimiento">
+                    <field name="name"/>
+                    <field name="nombre"/>
+                    <field name="apellidos"/>
+                </calendar>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="parque_bomberos_parque">
+            <field name="name">Parque</field>
+            <field name="res_model">parque_bomberos.parque</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="parque_bomberos_camion">
+            <field name="name">Camion</field>
+            <field name="res_model">parque_bomberos.camion</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="parque_bomberos_bombero">
+            <field name="name">Bombero</field>
+            <field name="res_model">parque_bomberos.bombero</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+
+        <!-- Top menu item -->
+        <menuitem name="parque_bomberos" id="parque_bomberos_menu_root"/>
+
+        <!-- actions -->
+        <menuitem name="Parque" id="parque_bomberos_menu_parque" parent="parque_bomberos_menu_root"
+                  action="parque_bomberos_parque"/>
+        <menuitem name="Camion" id="parque_bomberos_menu_camion" parent="parque_bomberos_menu_root"
+                  action="parque_bomberos_camion"/>
+        <menuitem name="Bombero" id="parque_bomberos_menu_bombero" parent="parque_bomberos_menu_root"
+                  action="parque_bomberos_bombero"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,84 @@
+<odoo>
+    <data>
+        <!-- Vista tree -->
+
+        <record model="ir.ui.view" id="view_prueba2_car_tree">
+            <field name="name">prueba2.car</field>
+            <field name="model">prueba2.car</field>
+            <field name="arch" type="xml">
+                <tree string="Coche">
+                    <field name="name"/>
+                    <field name="number_plate"/>
+                    <field name="cv"/>
+                    <field name="colour"/>
+                    <field name="fuel_litres"/>
+                    <field name="brand_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="prueba2_brand_tree">
+            <field name="name">Brand List</field>
+            <field name="model">prueba2.brand</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="luxury"/>
+                    <field name="cars_ids"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Acción para abrir vistas de los modelos -->
+
+        <record model="ir.actions.act_window" id="prueba2_car">
+            <field name="name">Coche</field>
+            <field name="res_model">prueba2.car</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para abrir vistas de los modelos -->
+
+        <record model="ir.actions.act_window" id="prueba2_brand">
+            <field name="name">Marca</field>
+            <field name="res_model">prueba2.brand</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="prueba2.action_server">
+              <field name="name">prueba2 server</field>
+              <field name="model_id" ref="model_prueba2_prueba2"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+        <!-- Menú item superior -->
+
+        <menuitem name="prueba2" id="prueba2_menu_root"/>
+
+        <!-- Categorías de Menú -->
+
+        <menuitem name="Coche" id="prueba2_menu_1" parent="prueba2_menu_root" action="prueba2_car"/>
+        <menuitem name="Marca" id="prueba2_menu_2" parent="prueba2_menu_root" action="prueba2_brand"/>
+
+        <!-- Acciones del Menú
+
+        <menuitem name="Coche" id="prueba2.menu_car" parent="prueba2.menu_1"
+                  action="prueba2.action_window"/>
+        <menuitem name="Server to list" id="prueba2" parent="prueba2.menu_2"
+                  action="prueba2.action_server"/>
+        -->
+    </data>
+</odoo>

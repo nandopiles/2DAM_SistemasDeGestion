@@ -1,0 +1,111 @@
+<odoo>
+  <data>
+        <!-- Vista tree -->
+        <record id="view_odoo_model_practica4_parque_tree" model="ir.ui.view">
+            <field name="name">view.odoo.model.practica4.parque.tree</field>
+            <field name="model">odoo_model_practica4.parque</field>
+            <field name="arch" type="xml">
+                <tree string="Parque">
+                    <field name="name"/>
+                    <field name="año_fundacion"/>
+                    <field name="localidad"/>
+                    <field name="barras"/>
+                    <field name="recargas_camiones"/>
+                    <field name="camiones_ids"/>
+                    <!--<button name="method" string="Acción" class="oe_highlight" type="object"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acción para abrir vistas de los modelos -->
+        <record model="ir.actions.act_window" id="odoo_model_practica4_parque">
+            <field name="name">Parque</field>
+            <field name="res_model">odoo_model_practica4.parque</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Vista tree -->
+        <record id="view_odoo_model_practica4_camion_tree" model="ir.ui.view">
+            <field name="name">view.odoo.model.practica4_camion.tree</field>
+            <field name="model">odoo_model_practica4.camion</field>
+            <field name="arch" type="xml">
+                <tree string="Camion">
+                    <field name="number_plate"/>
+                    <field name="ruedas"/>
+                    <field name="capacidad_b"/>
+                    <field name="litros"/>
+                    <field name="antiguedad"/>
+                    <field name="kilometros"/>
+                    <field name="bomberos_ids"/>
+                    <field name="parque_id"/>
+                    <!--<button name="method" string="Acción" class="oe_highlight" type="object"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acción para abrir vistas de los modelos -->
+        <record model="ir.actions.act_window" id="odoo_model_practica4_camion">
+            <field name="name">Camion</field>
+            <field name="res_model">odoo_model_practica4.camion</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+      <!-- Vista tree -->
+        <record id="view_odoo_model_practica4_bomberos_tree" model="ir.ui.view">
+            <field name="name">view.odoo.model.practica4_bomberos.tree</field>
+            <field name="model">odoo_model_practica4.bomberos</field>
+            <field name="arch" type="xml">
+                <tree string="Bomberos">
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="direccion"/>
+                    <field name="sueldo"/>
+                    <field name="inicio_trabajo"/>
+                    <field name="puesto"/>
+                    <field name="camion_id"/>
+                    <!--<button name="method" string="Acción" class="oe_highlight" type="object"/>-->
+                </tree>
+            </field>
+        </record>
+   <!-- Vista calendar -->
+        <record id="view_odoo_model_practica4_bomberos_calendar" model="ir.ui.view">
+            <field name="name">view.odoo.model.practica4_bomberos.calendar</field>
+            <field name="model">odoo_model_practica4.bomberos</field>
+            <field name="arch" type="xml">
+
+
+                <calendar string="Bomberos"   date_start="cumple" color="name" >
+                    <field name="name"/>
+
+                    <field name="direccion"/>
+                    <field name="sueldo"/>
+
+                    <field name="puesto"/>
+
+                    <!--<button name="method" string="Acción" class="oe_highlight" type="object"/>-->
+                </calendar>
+            </field>
+        </record>
+        <!-- Acción para abrir vistas de los modelos -->
+        <record model="ir.actions.act_window" id="odoo_model_practica4_bomberos">
+            <field name="name">Bomberos</field>
+            <field name="res_model">odoo_model_practica4.bomberos</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+
+
+
+        <!-- Menú item superior -->
+        <menuitem name="Practica4" id="odoo_model_practica4_menu_root"/>
+
+        <!-- Categorías de menú -->
+        <menuitem name="Parque" id="odoo_model_practica4_menu_1" parent="odoo_model_practica4_menu_root"    action="odoo_model_practica4_parque"/>
+        <menuitem name="Camion" id="odoo_model_practica4_menu_2" parent="odoo_model_practica4_menu_root"  action="odoo_model_practica4_camion"/>
+        <menuitem name="Bomberos" id="odoo_model_practica4_menu_3" parent="odoo_model_practica4_menu_root"  action="odoo_model_practica4_bomberos"/>
+
+
+  </data>
+</odoo>

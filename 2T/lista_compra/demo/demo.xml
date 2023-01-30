@@ -1,30 +1,86 @@
 <odoo>
     <data>
-<!--
-          <record id="object0" model="lista-compra.lista-compra">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
-          </record>
+        <!-- Inventarios -->
+        <record id="inventario_tequenyones" model="lista_compra.inventario">
+            <field name="name">Tequeñones</field>
+            <field name="cantidad">3</field>
+            <field name="tipo_producto">aperitivo</field>
+            <field name="precio_unidad">6</field>
+        </record>
 
-          <record id="object1" model="lista-compra.lista-compra">
-            <field name="name">Object 1</field>
-            <field name="value">10</field>
-          </record>
+        <record id="inventario_salchichas" model="lista_compra.inventario">
+            <field name="name">Salchichas</field>
+            <field name="cantidad">1</field>
+            <field name="tipo_producto">comida</field>
+            <field name="precio_unidad">3</field>
+        </record>
 
-          <record id="object2" model="lista-compra.lista-compra">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
-          </record>
+        <record id="inventario_arepas" model="lista_compra.inventario">
+            <field name="name">Arepas</field>
+            <field name="cantidad">7</field>
+            <field name="tipo_producto">venezolana</field>
+            <field name="precio_unidad">2</field>
+        </record>
 
-          <record id="object3" model="lista-compra.lista-compra">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
-          </record>
+        <!-- Compradores -->
+        <record id="compra_compradorPaca" model="lista_compra.comprador">
+            <field name="nif">214365879K</field>
+            <field name="name">Paca</field>
+            <field name="apellido1">Cerezo</field>
+            <field name="apellido2">Castaño</field>
+            <field name="pais_id">68</field>
+            <field name="direccion">C/La Siuu</field>
+            <field name="fecha_nacimiento">2000-01-27</field>
+        </record>
 
-          <record id="object4" model="lista-compra.lista-compra">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
-          </record>
--->
+        <record id="compra_compradorLeo" model="lista_compra.comprador">
+            <field name="nif">00000000G</field>
+            <field name="nif_tutor">111111111G</field>
+            <field name="name">Leo</field>
+            <field name="apellido1">Piles</field>
+            <field name="apellido2">García</field>
+            <field name="pais_id">68</field>
+            <field name="direccion">C/La Paueta</field>
+            <field name="fecha_nacimiento">2023-01-27</field>
+        </record>
+
+        <record id="compra_compradorMaria" model="lista_compra.comprador">
+            <field name="nif">123456789L</field>
+            <field name="nif_tutor">111111111S</field>
+            <field name="name">Maria</field>
+            <field name="apellido1">Riera</field>
+            <field name="apellido2">Maya</field>
+            <field name="pais_id">65</field>
+            <field name="direccion">C/La Mariseria</field>
+            <field name="fecha_nacimiento">2022-01-27</field>
+        </record>
+
+        <!-- Compras -->
+        <record id="compra_compra1" model="lista_compra.compra">
+            <field name="name">Compra1</field>
+            <field name="cantidad_compra">4</field>
+            <field name="fecha_compra">2023-01-27</field>
+
+            <field name="inventario_id" ref="inventario_tequenyones"/>
+            <field name="comprador_id" ref="compra_compradorPaca"/>
+        </record>
+
+        <record id="compra_compra2" model="lista_compra.compra">
+            <field name="name">Compra2</field>
+            <field name="cantidad_compra">1</field>
+            <field name="fecha_compra">2023-01-27</field>
+
+            <field name="inventario_id" ref="inventario_salchichas"/>
+            <field name="comprador_id" ref="compra_compradorPaca"/>
+        </record>
+
+        <record id="compra_compra3" model="lista_compra.compra">
+            <field name="name">Compra3</field>
+            <field name="cantidad_compra">11</field>
+            <field name="fecha_compra">2023-01-27</field>
+
+            <field name="inventario_id" ref="inventario_arepas"/>
+            <field name="comprador_id" ref="compra_compradorLeo"/>
+        </record>
     </data>
 </odoo>

@@ -33,8 +33,8 @@
         </record>
 
         <!-- Vista de Árbol => Comprador -->
-        <record model="ir.ui.view" id="lista_compra_comprador_form">
-            <field name="name">lista_compra.comprador_form</field>
+        <record model="ir.ui.view" id="lista_compra_comprador_tree">
+            <field name="name">lista_compra.comprador_tree</field>
             <field name="model">lista_compra.comprador</field>
             <field name="arch" type="xml">
                 <tree>
@@ -42,8 +42,6 @@
                     <field name="apellido1"/>
                     <field name="apellido2"/>
                     <field name="direccion"/>
-
-                    <field name="compra_id"/>
                 </tree>
             </field>
         </record>
@@ -61,7 +59,9 @@
                             <field name="cantidad"/>
                             <field name="tipo_producto"/>
                             <field name="precio_unidad"/>
-
+                            <separator colspan="2"/>
+                        </group>
+                        <group>
                             <field name="compra_id"/>
                         </group>
                     </sheet>
@@ -80,7 +80,9 @@
                             <field name="name"/>
                             <field name="cantidad_compra"/>
                             <field name="fecha_compra"/>
-
+                            <separator colspan="2"/>
+                        </group>
+                        <group>
                             <field name="inventario_id"/>
                             <field name="comprador_id"/>
                         </group>
@@ -97,12 +99,22 @@
                 <form string="Comprador Form">
                     <sheet>
                         <group string="Comprador">
+                            <field name="nif"/>
                             <field name="name"/>
                             <field name="apellido1"/>
                             <field name="apellido2"/>
+                            <field name="pais_id"/>
                             <field name="direccion"/>
-
-                            <field name="compra_id"/>
+                            <separator colspan="2"/>
+                        </group>
+                        <group>
+                            <field name="fecha_nacimiento"/>
+                            <field name="edad"/>
+                            <separator colspan="2"/>
+                        </group>
+                        <group>
+                            <field name="nif_tutor"
+                                   attrs="{'invisible':[('edad','&gt;',17)], 'required':[('edad','&lt;',18)]}"/>
                         </group>
                     </sheet>
                 </form>

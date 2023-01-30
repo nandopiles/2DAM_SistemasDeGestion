@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+from datetime import date
+
+from dateutil.relativedelta import relativedelta
 
 from odoo import models, fields, api, exceptions
 
@@ -13,16 +16,11 @@ class Inventario(models.Model):
     tipo_producto = fields.Char(string='Tipo Producto')
     precio_unidad = fields.Float(string='Precio Unidad')
 
-    compra_id = fields.One2many('lista_compra.compra', 'inventario_id', string='Compra ID')
+    compra_id = fields.One2many('lista_compra.compra', 'inventario_id', string='Compra')
+
+    _sql_constraints = [('name_product_uniq', 'unique (name)', "Nombre del Producto Repetido!")]
 
     _order = 'precio_unidad'
-
-    @api.constrains('name')
-    def _validate_name(self):
-        name_counts = self.search_count([('name', '=', self.name)])
-        print(name_counts)
-        if name_counts > 0:
-            raise exceptions.ValidationError("Nombre ya existente!!")
 
 
 class Compra(models.Model):
@@ -33,10 +31,10 @@ class Compra(models.Model):
     cantidad_compra = fields.Integer(string="Cantidad Comprada")
     fecha_compra = fields.Date(string="Fecha de Compra")
 
-    inventario_id = fields.Many2one('lista_compra.inventario', string='Inventario ID')
-    comprador_id = fields.Many2one('lista_compra.comprador', string='Comprador ID')
+    inventario_id = fields.Many2one('lista_compra.inventario', string='Inventario')
+    comprador_id = fields.Many2one('lista_compra.comprador', string='Comprador')
 
-    _order = 'fecha_compra'
+    _order = 'fecha_compra, comprador_id'
 
 
 class Comprador(models.Model):
@@ -44,8 +42,22 @@ class Comprador(models.Model):
     _description = 'Comprador'
 
     name = fields.Char(string='Nombre')
+    nif = fields.Char(string='NIF')
+    nif_tutor = fields.Text(string="NIF Tutor")
     apellido1 = fields.Char(string='Apellido 1')
     apellido2 = fields.Char(string='Apellido 2')
     direccion = fields.Char(string='Dirección')
+    fecha_nacimiento = fields.Date(string="Fecha de Nacimiento")
+    edad = fields.Integer(string='Edad', compute='_age_compute')
 
+    pais_id = fields.Many2one(comodel_name='res.country', string='Pais')  # acceder a una tabla existente
     compra_id = fields.One2many('lista_compra.compra', 'inventario_id', string='Compra')
+
+    _sql_constraints = [('nif_uniq', 'unique (nif)', "NIF repetido!")]
+
+    @api.depends('fecha_nacimiento')
+    def _age_compute(self):
+        today = date.today()
+        for record in self:
+            record.edad = relativedelta(today, record.fecha_nacimiento).years
+            print(str(record.edad))

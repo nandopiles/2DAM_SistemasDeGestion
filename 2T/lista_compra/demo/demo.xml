@@ -3,21 +3,21 @@
         <!-- Inventarios -->
         <record id="inventario_tequenyones" model="lista_compra.inventario">
             <field name="name">Tequeñones</field>
-            <field name="cantidad">3</field>
+            <field name="cantidad">10</field>
             <field name="tipo_producto">aperitivo</field>
             <field name="precio_unidad">6</field>
         </record>
 
         <record id="inventario_salchichas" model="lista_compra.inventario">
             <field name="name">Salchichas</field>
-            <field name="cantidad">1</field>
+            <field name="cantidad">8</field>
             <field name="tipo_producto">comida</field>
             <field name="precio_unidad">3</field>
         </record>
 
         <record id="inventario_arepas" model="lista_compra.inventario">
             <field name="name">Arepas</field>
-            <field name="cantidad">7</field>
+            <field name="cantidad">15</field>
             <field name="tipo_producto">venezolana</field>
             <field name="precio_unidad">2</field>
         </record>
@@ -31,6 +31,7 @@
             <field name="pais_id">68</field>
             <field name="direccion">C/La Siuu</field>
             <field name="fecha_nacimiento">2000-01-27</field>
+            <field name="limite_dinero">30</field>
         </record>
 
         <record id="compra_compradorLeo" model="lista_compra.comprador">
@@ -42,6 +43,7 @@
             <field name="pais_id">68</field>
             <field name="direccion">C/La Paueta</field>
             <field name="fecha_nacimiento">2023-01-27</field>
+            <field name="limite_dinero">10</field>
         </record>
 
         <record id="compra_compradorMaria" model="lista_compra.comprador">
@@ -53,6 +55,7 @@
             <field name="pais_id">65</field>
             <field name="direccion">C/La Mariseria</field>
             <field name="fecha_nacimiento">2022-01-27</field>
+            <field name="limite_dinero">30</field>
         </record>
 
         <!-- Compras -->
@@ -60,6 +63,7 @@
             <field name="name">Compra1</field>
             <field name="cantidad_compra">4</field>
             <field name="fecha_compra">2023-01-27</field>
+            <field name="metodo_compra">Tarjeta</field>
 
             <field name="inventario_id" ref="inventario_tequenyones"/>
             <field name="comprador_id" ref="compra_compradorPaca"/>
@@ -69,15 +73,17 @@
             <field name="name">Compra2</field>
             <field name="cantidad_compra">1</field>
             <field name="fecha_compra">2023-01-27</field>
+            <field name="metodo_compra">Efectivo</field>
 
             <field name="inventario_id" ref="inventario_salchichas"/>
-            <field name="comprador_id" ref="compra_compradorPaca"/>
+            <field name="comprador_id" ref="compra_compradorMaria"/>
         </record>
 
         <record id="compra_compra3" model="lista_compra.compra">
             <field name="name">Compra3</field>
             <field name="cantidad_compra">11</field>
             <field name="fecha_compra">2023-01-27</field>
+            <field name="metodo_compra">Tarjeta</field>
 
             <field name="inventario_id" ref="inventario_arepas"/>
             <field name="comprador_id" ref="compra_compradorLeo"/>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista Tree => Asignatura Extension -->
+        <record id="herencia_alumno1_asignatura_tree" model="ir.ui.view">
+            <field name="name">Libro</field>
+            <field name="model">herencia_alumno1.asignatura</field>
+            <field name="inherit_id" ref="herencia_alumno1.herencia_alumno1_asignatura_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="profesor_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

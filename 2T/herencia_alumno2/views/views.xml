@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <!-- Vista Árbol => Profesor -->
+        <record model="ir.ui.view" id="herencia_alumno1_profesor_tree">
+            <field name="name">Profesor List</field>
+            <field name="model">herencia_alumno2.profesor</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="apellidos"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario => Profesor -->
+        <record model="ir.ui.view" id="herencia_alumno1_profesor_form">
+            <field name="name">Profesor Form</field>
+            <field name="model">herencia_alumno2.profesor</field>
+            <field name="arch" type="xml">
+                <form string="Profesor">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="apellidos"/>
+                            <separator colspan="2"/>
+                        </group>
+                        <notebook>
+                            <page string="Asignaturas">
+                                <field name="asignaturas_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Action => Profesor -->
+        <record model="ir.actions.act_window" id="herencia_alumno2_profesor_action">
+            <field name="name">Profesor</field>
+            <field name="res_model">herencia_alumno2.profesor</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Top menu item -->
+        <menuitem name="herencia_alumno2" id="herencia_alumno2_menu_root"/>
+
+        <!-- actions -->
+        <menuitem name="Profesor" id="herencia_alumno2_menu_profesor" parent="herencia_alumno2_menu_root"
+                  action="herencia_alumno2_profesor_action"/>
+    </data>
+</odoo>

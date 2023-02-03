@@ -1,0 +1,100 @@
+<odoo>
+    <data>
+        <!-- Vista Árbol => Alumno -->
+        <record model="ir.ui.view" id="herencia_alumno1_alumno_tree">
+            <field name="name">Alumno List</field>
+            <field name="model">herencia_alumno1.alumno</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="apellidos"/>
+                    <field name="sexo"/>
+
+                    <field name="asignaturas_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario => Alumno -->
+        <record model="ir.ui.view" id="herencia_alumno1_alumno_form">
+            <field name="name">Alumno Form</field>
+            <field name="model">herencia_alumno1.alumno</field>
+            <field name="arch" type="xml">
+                <form string="Alumno">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="apellidos"/>
+                            <field name="sexo"/>
+                            <separator colspan="2"/>
+                        </group>
+                        <notebook>
+                            <page string="Asignaturas">
+                                <field name="asignaturas_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Vista Árbol => Asignatura -->
+        <record model="ir.ui.view" id="herencia_alumno1_asignatura_tree">
+            <field name="name">Asignatura List</field>
+            <field name="model">herencia_alumno1.asignatura</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="horas"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario => Asignatura -->
+        <record model="ir.ui.view" id="herencia_alumno1_asignatura_form">
+            <field name="name">Asignatura Form</field>
+            <field name="model">herencia_alumno1.asignatura</field>
+            <field name="arch" type="xml">
+                <form string="Asignatura">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="horas"/>
+                            <separator colspan="2"/>
+                        </group>
+                        <notebook>
+                            <page string="Alumnos">
+                                <field name="alumnos_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Action => Alumno -->
+        <record model="ir.actions.act_window" id="herencia_alumno1_alumno_action">
+            <field name="name">Alumno</field>
+            <field name="res_model">herencia_alumno1.alumno</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Action => Asignatura -->
+        <record model="ir.actions.act_window" id="herencia_alumno1_asignatura_action">
+            <field name="name">Asignatura</field>
+            <field name="res_model">herencia_alumno1.asignatura</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Top menu item -->
+        <menuitem name="herencia_alumno1" id="herencia_alumno1_menu_root"/>
+
+        <!-- actions -->
+        <menuitem name="Alumnos" id="herencia_alumno1_menu_alumno" parent="herencia_alumno1_menu_root"
+                  action="herencia_alumno1_alumno_action"/>
+        <menuitem name="Asignaturas" id="herencia_alumno1_menu_asignatura" parent="herencia_alumno1_menu_root"
+                  action="herencia_alumno1_asignatura_action"/>
+    </data>
+</odoo>

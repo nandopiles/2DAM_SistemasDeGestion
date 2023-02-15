@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lista-compra_inventario_admin,lista-compra_inventario_admin,model_lista_compra_inventario,group_lista_compra_admin,1,1,1,1
+access_lista-compra_inventario_user,lista-compra_inventario_user,model_lista_compra_inventario,group_lista_compra_user,1,0,0,0
+access_lista-compra_compra_admin,lista-compra_compra_admin,model_lista_compra_compra,group_lista_compra_admin,1,0,0,0
+access_lista-compra_compra_user,lista-compra_compra_user,model_lista_compra_compra,group_lista_compra_user,1,0,0,0
+access_lista-compra_comprador_admin,lista-compra_comprador_admin,model_lista_compra_comprador,group_lista_compra_admin,1,1,1,1
+access_lista-compra_comprador_user,lista-compra_comprador_user,model_lista_compra_comprador,group_lista_compra_user,1,1,0,0

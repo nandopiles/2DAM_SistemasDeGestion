@@ -1,0 +1,137 @@
+<odoo>
+    <data>
+        <!-- PARQUE -->
+        <record id="parque1" model="pileslablanca.parque">
+            <field name="name">Fuenlabrada</field>
+            <field name="jefe">PacoPepe</field>
+            <field name="direccion">C/La Siu</field>
+            <field name="fecha_inauguracion">2003-03-21</field>
+            <field name="num">4</field>
+            <field name="otro_dato">5</field>
+            <field name="tamanyo">Grande</field>
+        </record>
+
+        <record id="parque2" model="pileslablanca.parque">
+            <field name="name">Aguas</field>
+            <field name="jefe">PacoPepe</field>
+            <field name="direccion">C/La Siu</field>
+            <field name="fecha_inauguracion">2003-03-21</field>
+            <field name="num">1</field>
+            <field name="otro_dato">1</field>
+            <field name="tamanyo">Grande</field>
+        </record>
+
+        <record id="parque3" model="pileslablanca.parque">
+            <field name="name">SERIA</field>
+            <field name="jefe">PacoPepe</field>
+            <field name="direccion">C/La Siu</field>
+            <field name="fecha_inauguracion">2003-03-21</field>
+            <field name="num">1</field>
+            <field name="otro_dato">3</field>
+            <field name="tamanyo">Grande</field>
+        </record>
+
+        <!-- CAMIONES -->
+        <record id="camion1" model="pileslablanca.camion">
+            <field name="name">Cami 1</field>
+            <field name="cv">12</field>
+            <field name="litros">4</field>
+            <field name="color">Rojo</field>
+            <field name="capacidad">45</field>
+            <field name="lleva_manguera">false</field>
+            <field name="otro_campo">asfg</field>
+        </record>
+
+        <record id="camion2" model="pileslablanca.camion">
+            <field name="name">Cami 2</field>
+            <field name="cv">200</field>
+            <field name="litros">50</field>
+            <field name="color">Rojo</field>
+            <field name="capacidad">12</field>
+            <field name="lleva_manguera">true</field>
+            <field name="otro_campo">asffgdg</field>
+        </record>
+
+        <record id="camion3" model="pileslablanca.camion">
+            <field name="name">Cami 3</field>
+            <field name="cv">1</field>
+            <field name="litros">23</field>
+            <field name="color">Amarillo</field>
+            <field name="capacidad">32</field>
+            <field name="lleva_manguera">true</field>
+            <field name="otro_campo">asfgfdgfg</field>
+        </record>
+
+        <record id="camion4" model="pileslablanca.camion">
+            <field name="name">Cami 4</field>
+            <field name="cv">54</field>
+            <field name="litros">4</field>
+            <field name="color">Amarillo</field>
+            <field name="capacidad">3</field>
+            <field name="lleva_manguera">true</field>
+            <field name="otro_campo">fgdgdf</field>
+        </record>
+
+        <!-- BOMBEROS -->
+        <record id="bombero1" model="pileslablanca.bombero">
+            <field name="name">2132343H</field>
+            <field name="nombre">Juanjo</field>
+            <field name="apellido1">López</field>
+            <field name="apellido1">Ripoll</field>
+            <field name="es_veterano">true</field>
+            <field name="fecha_nacimiento">2001-03-21</field>
+            <field name="salario">1400</field>
+            <field name="sexo">Hombre</field>
+        </record>
+
+        <record id="bombero2" model="pileslablanca.bombero">
+            <field name="name">231J</field>
+            <field name="nombre">Pepe</field>
+            <field name="apellido1">Mama</field>
+            <field name="apellido1">Lele</field>
+            <field name="es_veterano">false</field>
+            <field name="fecha_nacimiento">2001-03-21</field>
+            <field name="salario">123</field>
+            <field name="sexo">Mujer</field>
+        </record>
+
+        <record id="bombero3" model="pileslablanca.bombero">
+            <field name="name">234T</field>
+            <field name="nombre">LILI</field>
+            <field name="apellido1">ama</field>
+            <field name="apellido1">Sola</field>
+            <field name="es_veterano">true</field>
+            <field name="fecha_nacimiento">2001-03-21</field>
+            <field name="salario">12</field>
+            <field name="sexo">Mujer</field>
+        </record>
+
+        <record id="bombero4" model="pileslablanca.bombero">
+            <field name="name">564Y</field>
+            <field name="nombre">LOLO</field>
+            <field name="apellido1">S</field>
+            <field name="apellido1">RT</field>
+            <field name="es_veterano">true</field>
+            <field name="fecha_nacimiento">2001-03-21</field>
+            <field name="salario">1400</field>
+            <field name="sexo">Hombre</field>
+        </record>
+
+        <!-- BOMBEROCAMION -->
+        <record id="bomberocamion1" model="pileslablanca.bomberocamion">
+            <field name="fecha_inicio">2023-02-10</field>
+            <field name="fecha_fin">2024-03-23</field>
+            <field name="puesto">Manguera</field>
+        </record>
+        <record id="bomberocamion2" model="pileslablanca.bomberocamion">
+            <field name="fecha_inicio">2001-03-21</field>
+            <field name="fecha_fin">2001-03-23</field>
+            <field name="puesto">Parque</field>
+        </record>
+        <record id="bomberocamion3" model="pileslablanca.bomberocamion">
+            <field name="fecha_inicio">2001-03-21</field>
+            <field name="fecha_fin">2001-03-23</field>
+            <field name="puesto">Manguera</field>
+        </record>
+    </data>
+</odoo>

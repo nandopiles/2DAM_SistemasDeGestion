@@ -1,0 +1,223 @@
+<odoo>
+    <data>
+        <!-- Vista de Árbol => Parque -->
+        <record model="ir.ui.view" id="pileslablanca_parque_tree">
+            <field name="name">pileslablanca.parque_tree</field>
+            <field name="model">pileslablanca.parque</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="jefe"/>
+                    <field name="direccion"/>
+                    <field name="fecha_inauguracion"/>
+                    <field name="num"/>
+                    <field name="es_viejo"/>
+                    <field name="tamanyo"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario => Parque -->
+        <record model="ir.ui.view" id="pileslablanca_parque_form">
+            <field name="name">pileslablanca.parque_form</field>
+            <field name="model">pileslablanca.parque</field>
+            <field name="arch" type="xml">
+                <form string="Parque Form">
+                    <sheet>
+                        <group string="Parques">
+                            <field name="name"/>
+                            <field name="jefe"/>
+                            <field name="direccion"/>
+                            <field name="fecha_inauguracion"/>
+                            <field name="num"/>
+                            <field name="es_viejo"/>
+                            <field name="tamanyo"/>
+                            <field name="otro_dato"/>
+                            <separator colspan="2"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Vista de Árbol => Bombero -->
+        <record model="ir.ui.view" id="pileslablanca_bombero_tree">
+            <field name="name">pileslablanca.bombero_tree</field>
+            <field name="model">pileslablanca.bombero</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="nombre"/>
+                    <field name="apellido1"/>
+                    <field name="es_veterano"/>
+                    <field name="fecha_nacimiento"/>
+                    <field name="salario"/>
+                    <field name="sexo"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario => Bombero -->
+        <record model="ir.ui.view" id="pileslablanca_bombero_form">
+            <field name="name">pileslablanca.bombero_form</field>
+            <field name="model">pileslablanca.bombero</field>
+            <field name="arch" type="xml">
+                <form string="Bombero Form">
+                    <sheet>
+                        <group string="Bomberos">
+                            <field name="name"/>
+                            <field name="nombre"/>
+                            <field name="apellido1"/>
+                            <field name="apellido2"/>
+                            <field name="es_veterano"/>
+                            <field name="fecha_nacimiento"/>
+                            <field name="salario"/>
+                            <field name="sexo"
+                                   attrs="{'invisible':[('salario','&gt;',3)], 'required':[('salario','&lt;',4)]}"/>
+                            <separator colspan="2"/>
+                            <notebook>
+                                <page string="Parques">
+                                    <field name="parque_id"/>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Vista de Árbol => Camion -->
+        <record model="ir.ui.view" id="pileslablanca_camion_tree">
+            <field name="name">pileslablanca.camion_tree</field>
+            <field name="model">pileslablanca.camion</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="cv"/>
+                    <field name="litros"/>
+                    <field name="color"/>
+                    <field name="capacidad"/>
+                    <field name="lleva_manguera"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario => Camion -->
+        <record model="ir.ui.view" id="pileslablanca_camion_form">
+            <field name="name">pileslablanca.camion_form</field>
+            <field name="model">pileslablanca.camion</field>
+            <field name="arch" type="xml">
+                <form string="Camion Form">
+                    <sheet>
+                        <group string="Camiones">
+                            <field name="name"/>
+                            <field name="cv"/>
+                            <field name="litros"/>
+                            <field name="color"/>
+                            <field name="capacidad"/>
+                            <field name="lleva_manguera"/>
+                            <field name="otro_campo"/>
+                            <field name="debe_repostar"/>
+                            <separator colspan="2"/>
+                            <field name="parque_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de Árbol => Bomberocamion -->
+        <record model="ir.ui.view" id="pileslablanca_bomberocamion_tree">
+            <field name="name">pileslablanca.bomberocamion_tree</field>
+            <field name="model">pileslablanca.bomberocamion</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="bombero_id"/>
+                    <field name="camion_id"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <field name="puesto"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario => Bomberocamion -->
+        <record model="ir.ui.view" id="pileslablanca_bomberocamion_form">
+            <field name="name">pileslablanca.bomberocamion_form</field>
+            <field name="model">pileslablanca.bomberocamion</field>
+            <field name="arch" type="xml">
+                <form string="Bomberocamion Form">
+                    <sheet>
+                        <group string="Datos">
+                            <field name="bombero_id"/>
+                            <field name="camion_id"/>
+                        </group>
+                        <group>
+                            <field name="fecha_inicio"/>
+                            <field name="fecha_fin"/>
+                            <field name="puesto"/>
+                            <separator colspan="2"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Calendar => Bomberocamion -->
+        <record model="ir.ui.view" id="pileslablanca_bomberocamion_calendar">
+            <field name="name">pileslablanca.bomberocamion_calendar</field>
+            <field name="model">pileslablanca.bomberocamion</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendar Bomberocamion" date_start="fecha_inicio">
+                    <field name="bombero_id"/>
+                    <field name="camion_id"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <field name="puesto"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="pileslablanca_parque">
+            <field name="name">Parque</field>
+            <field name="res_model">pileslablanca.parque</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="pileslablanca_camion">
+            <field name="name">Camion</field>
+            <field name="res_model">pileslablanca.camion</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="pileslablanca_bombero">
+            <field name="name">Bombero</field>
+            <field name="res_model">pileslablanca.bombero</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="pileslablanca_bomberocamion">
+            <field name="name">Bomberocamion</field>
+            <field name="res_model">pileslablanca.bomberocamion</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+
+        <!-- Top menu item -->
+        <menuitem name="pileslablanca" id="pileslablanca_menu_root"/>
+
+        <!-- actions -->
+        <menuitem name="Parque" id="pileslablanca_menu_parque" parent="pileslablanca_menu_root"
+                  action="pileslablanca_parque"/>
+        <menuitem name="Camion" id="pileslablanca_menu_camion" parent="pileslablanca_menu_root"
+                  action="pileslablanca_camion"/>
+        <menuitem name="Bombero" id="pileslablanca_menu_bombero" parent="pileslablanca_menu_root"
+                  action="pileslablanca_bombero"/>
+        <menuitem name="Bomberocamion" id="pileslablanca_menu_bomberocamion" parent="pileslablanca_menu_root"
+                  action="pileslablanca_bomberocamion"/>
+    </data>
+</odoo>
